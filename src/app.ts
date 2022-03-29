@@ -19,4 +19,13 @@ app.post('/send-email', async (req, res) => {
     res.send({ status: 'ok' });
 });
 
+
+app.get('/qtest', async (req, res) => {
+    console.log("qTest added")
+    await sendNewEmail({
+        html: `<p>message</p>`
+    });
+    res.send({ status: 'ok' });
+});
+
 app.listen(5000, () => console.log('App running on port 5000'));
