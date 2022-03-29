@@ -5,7 +5,10 @@ import {setQueues, BullAdapter} from 'bull-board';
 // https://optimalbits.github.io/bull
 
 const emailQueue = new Bull('email', {
-    redis: process.env.REDIS_URL
+    redis: {
+        host: process.env.REDIS_URL,
+        port: 6379
+    }
 });
 
 setQueues([

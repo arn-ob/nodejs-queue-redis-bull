@@ -6,6 +6,8 @@ const app = express();
 
 app.use(bodyParser.json());
 
+app.use('/test', (req, res) => res.send({ status: 'ok' }))
+
 app.use('/admin/queues', router);
 
 app.post('/send-email', async (req, res) => {
