@@ -4,11 +4,16 @@ import { setQueues, BullAdapter } from 'bull-board';
 
 // https://optimalbits.github.io/bull
 
-const emailQueue = new Bull('email', `redis://${process.env.REDIS_URL}`);
+const emailQueue = new Bull('email', `redis://${process.env.REDIS_URL}`, {
+    limiter: {
+        max: 1,
+        duration: 50000
+    }
+});
 
-// setQueues([
-//     new BullAdapter(emailQueue)
-// ]);
+setQueues([
+    new BullAdapter(emailQueue)
+]);
 
 emailQueue.process(emailProcess);
 

@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import { sendNewEmail } from './queues/email.queue';
 import { router } from 'bull-board';
+
 const app = express();
 
 app.use(bodyParser.json());
