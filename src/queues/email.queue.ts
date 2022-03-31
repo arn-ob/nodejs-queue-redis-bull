@@ -7,7 +7,7 @@ import { setQueues, BullAdapter } from 'bull-board';
 const emailQueue = new Bull('email', `redis://${process.env.REDIS_URL}`, {
     limiter: {
         max: 1,
-        duration: 50000
+        duration: 10000
     }
 });
 

@@ -23,9 +23,7 @@ app.post('/send-email', async (req, res) => {
 
 app.get('/qtest', async (req, res) => {
     console.log("qTest added")
-    await sendNewEmail({
-        html: `<p>message</p>`
-    });
+    await sendNewEmail({url: "https://jsonplaceholder.typicode.com/todos"});
     res.send({ status: 'ok' });
 });
 

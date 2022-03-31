@@ -1,16 +1,17 @@
 import { Job } from "bull";
-
+import axios from 'axios'
 
 const emailProcess = async (job: Job) => {
+    try {
+        console.log(job.data)
+        let _axios = await axios.get(String(job.data.url))
 
-    let todos  = await fetch('https://jsonplaceholder.typicode.com/todos')
+        console.log("Message sent: %s", _axios);
+    } catch (error) {
+        console.log("error ---- ", error)
+    }
 
-    console.log("todos List", JSON.stringify(todos));
-
-    console.log("Message sent: %s");
-    // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-
-    return;
+   return;
 };
 
 export default emailProcess;
