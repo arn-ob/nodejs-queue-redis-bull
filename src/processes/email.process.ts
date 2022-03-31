@@ -6,7 +6,7 @@ const emailProcess = async (job: Job) => {
         console.log(job.data)
         let _axios = await axios.get(String(job.data.url))
 
-        console.log("Message sent: %s", _axios);
+        console.log("Message sent: %s", _axios.data);
     } catch (error) {
         console.log("error ---- ", error)
     }
